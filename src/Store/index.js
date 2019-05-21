@@ -2,7 +2,9 @@ import { createStore } from 'redux';
 
 const initialState = {
   count: 3,
-  inputValue: ''
+  inputValue: '',
+  repos: [],
+  searchInput: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,6 +24,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         inputValue: action.text
+      };
+    case 'SEARCH_INPUT':
+      return {
+        ...state,
+        searchInput: action.search
+      };
+    case 'SET_REPOS':
+      return {
+        ...state,
+        repos: action.repos
       };
     default:
       return state;
