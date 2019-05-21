@@ -1,8 +1,8 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import counterReducer from './reducers/counter';
 import * as ActionType from './action';
 
 const initialState = {
-  count: 3,
   inputValue: '',
   repos: [],
   searchInput: '',
@@ -12,16 +12,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   console.log('reducer running', action);
   switch (action.type) {
-    case ActionType.INCREMENT:
-      return {
-        ...state,
-        count: state.count + 1
-      };
-    case ActionType.DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1
-      };
     case ActionType.INPUT_CHANGED:
       return {
         ...state,
@@ -54,6 +44,11 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  main: reducer,
+  counter: counterReducer
+});
+
+const store = createStore(rootReducer);
 
 export default store;

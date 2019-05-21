@@ -33,8 +33,8 @@ function RepoSearch(props) {
 
 function mapStateToProps(state) {
   return {
-    search: state.searchInput,
-    repos: state.repos
+    search: state.main.searchInput,
+    repos: state.main.repos
   };
 }
 

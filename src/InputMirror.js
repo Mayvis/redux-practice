@@ -16,7 +16,7 @@ function InputMirror(props) {
 
 function mapStateToProps(state) {
   return {
-    inputValue: state.inputValue
+    inputValue: state.main.inputValue
   };
 }
 
