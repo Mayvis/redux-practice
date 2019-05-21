@@ -23,11 +23,12 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onIncrementClick: () => {
-      console.log('click');
+      console.log('click increment');
       const action = { type: 'INCREMENT' };
       dispatch(action);
     },
     onDecrementClick: () => {
+      console.log('click decrement');
       const action = { type: 'DECREMENT' };
       dispatch(action);
     }

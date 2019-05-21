@@ -1,7 +1,8 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  count: 3
+  count: 3,
+  inputValue: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         count: state.count - 1
+      };
+    case 'INPUT_CHANGED':
+      return {
+        ...state,
+        inputValue: action.text
       };
     default:
       return state;
