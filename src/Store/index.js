@@ -4,7 +4,8 @@ const initialState = {
   count: 3,
   inputValue: '',
   repos: [],
-  searchInput: ''
+  searchInput: '',
+  todos: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +35,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         repos: action.repos
+      };
+    case 'SET_TODOS':
+      return {
+        ...state,
+        todos: state.todos.concat(action.todos)
+      };
+    case 'DEL_TODOS':
+      const cloneTodo = [...state.todos];
+      const updateTodo = cloneTodo.splice(1);
+      return {
+        ...state,
+        todos: updateTodo
       };
     default:
       return state;
