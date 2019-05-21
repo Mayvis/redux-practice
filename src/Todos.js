@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { SET_TODOS, DEL_TODOS } from './Store/action';
 
 function Todos(props) {
   const [todo, setTodo] = useState('');
@@ -41,11 +42,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     handleSetTodos(todos) {
-      const action = { type: 'SET_TODOS', todos: todos };
+      const action = { type: SET_TODOS, todos: todos };
       dispatch(action);
     },
     handleDeleteTodos() {
-      const action = { type: 'DEL_TODOS' };
+      const action = { type: DEL_TODOS };
       dispatch(action);
     }
   };

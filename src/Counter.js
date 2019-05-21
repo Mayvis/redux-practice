@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { INCREMENT, DECREMENT } from './Store/action';
 
 function Counter(props) {
   console.log('render', props);
@@ -24,12 +25,12 @@ function mapDispatchToProps(dispatch) {
   return {
     onIncrementClick: () => {
       console.log('click increment');
-      const action = { type: 'INCREMENT' };
+      const action = { type: INCREMENT };
       dispatch(action);
     },
     onDecrementClick: () => {
       console.log('click decrement');
-      const action = { type: 'DECREMENT' };
+      const action = { type: DECREMENT };
       dispatch(action);
     }
   };

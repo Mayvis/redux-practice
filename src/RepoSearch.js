@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getRepo } from './Api/api';
+import { SEARCH_INPUT, SET_REPOS } from './Store/action';
 
 function RepoSearch(props) {
   console.log(props.repos);
@@ -41,12 +42,12 @@ function mapDispatchToProps(dispatch) {
   return {
     onSearchInputChanged: (e) => {
       console.log('search repo', e.target.value);
-      const action = { type: 'SEARCH_INPUT', search: e.target.value };
+      const action = { type: SEARCH_INPUT, search: e.target.value };
       dispatch(action);
     },
     handleSubmit: (e, query) => {
       e.preventDefault();
-      return getRepo(dispatch, query);
+      return getRepo(dispatch, query, SET_REPOS);
     }
   };
 }
